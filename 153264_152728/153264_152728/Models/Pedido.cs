@@ -16,6 +16,7 @@ namespace _153264_152728.Models
         public int IdPedido { get; set; }
         public string Nome { get; set; }
         public double Total { get; set; }
+        [DataType("DateTime")]
         public string Data { get; set; }
         public string Endereco { get; set; }
 

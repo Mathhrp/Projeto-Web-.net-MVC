@@ -79,3 +79,4 @@ C:\Users\mathe\Projeto-Web-.net-MVC\153264_152728\153264_152728\bin\Microsoft.Ow
 C:\Users\mathe\Projeto-Web-.net-MVC\153264_152728\153264_152728\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\mathe\Projeto-Web-.net-MVC\153264_152728\153264_152728\obj\Debug\153264_152728.dll
 C:\Users\mathe\Projeto-Web-.net-MVC\153264_152728\153264_152728\obj\Debug\153264_152728.pdb
+C:\Users\mathe\Projeto-Web-.net-MVC\153264_152728\153264_152728\obj\Debug\153264_152728.csprojResolveAssemblyReference.cache
