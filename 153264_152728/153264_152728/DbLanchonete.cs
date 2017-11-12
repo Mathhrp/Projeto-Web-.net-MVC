@@ -13,7 +13,7 @@ namespace _153264_152728
         // If you wish to target a different database and/or database provider, modify the 'DbLanchonete' 
         // connection string in the application configuration file.
         public DbLanchonete()
-            : base("name=DbLanchonete")
+            : base("name=DbLanchonete1")
         {
         }
 
