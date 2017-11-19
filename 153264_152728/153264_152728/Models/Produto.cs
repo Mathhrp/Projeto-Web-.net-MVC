@@ -13,6 +13,7 @@ namespace _153264_152728.Models
         public int IdProduto { get; set; }
         public string Nome { get; set; }
         public string  Tipo { get; set; }
+        public int qtde { get; set; }
 
     }
 }
