@@ -42,12 +42,12 @@
             {
 
                 <p>
-                   <strong>Nome:</strong>@lanche.Lanche.Nome<br /> <strong>Preço:</strong> @lanche.Lanche.Preco<br/>
-                    @{ total +=lanche.Lanche.Preco;
-                }
+                    <strong>Nome:</strong>@lanche.Lanche.Nome<br /> <strong>Preço:</strong> @lanche.Lanche.Preco<br />
+                    @{ total += lanche.Lanche.Preco;
+                    }
                 </p>
 
-           }
+                        }
         </dd>
         <dt>
             Total:
@@ -55,7 +55,7 @@
         <dd>
             @total
         </dd>
-</dl>
+    </dl>
 </div>
 <p>
     <a href="~/PedidosLanches/Create">Adicionar Lanche</a> |

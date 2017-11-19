@@ -13,7 +13,7 @@ namespace _152728_153264.Controllers
 {
     public class LanchesController : Controller
     {
-        private Db_Lanchonete db = new Db_Lanchonete();
+        private DbLanchonete_ db = new DbLanchonete_();
 
         // GET: Lanches
         public ActionResult Index()
@@ -31,8 +31,8 @@ namespace _152728_153264.Controllers
             }
             Lanche lanche = db.Lanches.Find(id);
             lanche.LancheProduto = (from a in db.LancheProdutoes
-                                   where a.LancheId == id
-                                   select a).ToList();
+                                    where a.LancheId == id
+                                    select a).ToList();
             if (lanche == null)
             {
                 return HttpNotFound();

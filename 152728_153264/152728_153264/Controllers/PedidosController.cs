@@ -13,7 +13,7 @@ namespace _152728_153264.Controllers
 {
     public class PedidosController : Controller
     {
-        private Db_Lanchonete db = new Db_Lanchonete();
+        private DbLanchonete_ db = new DbLanchonete_();
 
         // GET: Pedidos
         public ActionResult Index()
@@ -29,9 +29,9 @@ namespace _152728_153264.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Pedido pedido = db.Pedidoes.Find(id);
-            pedido.PedidoLanche= (from a in db.PedidoLanches
-                                    where a.PedidoId == id
-                                    select a).ToList();
+            pedido.PedidoLanche = (from a in db.PedidoLanches
+                                   where a.PedidoId == id
+                                   select a).ToList();
             if (pedido == null)
             {
                 return HttpNotFound();
