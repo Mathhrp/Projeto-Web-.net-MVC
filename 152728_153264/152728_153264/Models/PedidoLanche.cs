@@ -10,8 +10,6 @@ namespace _152728_153264.Models
     public class PedidoLanche
     {
         public int PedidoLancheId { get; set; }
-        [Required]
-        public int qtde { get; set; }
         [DisplayName("Pedido")]
         [Required]
         public int PedidoId { get; set; }

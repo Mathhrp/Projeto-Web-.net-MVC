@@ -11,6 +11,7 @@ namespace _152728_153264.Models
     {
         public int LancheProdutoId { get; set; }
         [Required]
+        [Range(0,int.MaxValue)]
         public int qtde { get; set; }
         [DisplayName("Produto")]
         [Required]

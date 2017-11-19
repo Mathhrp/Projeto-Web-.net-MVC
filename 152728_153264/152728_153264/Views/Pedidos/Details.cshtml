@@ -42,8 +42,8 @@
             {
 
                 <p>
-                   <strong>Nome:</strong>@lanche.Lanche.Nome<br /> <strong>Quantidade:</strong>@lanche.qtde <br/><strong>Preço:</strong> @lanche.Lanche.Preco<br/>
-                    @{ total += lanche.qtde * lanche.Lanche.Preco;
+                   <strong>Nome:</strong>@lanche.Lanche.Nome<br /> <strong>Preço:</strong> @lanche.Lanche.Preco<br/>
+                    @{ total +=lanche.Lanche.Preco;
                 }
                 </p>
 
@@ -58,6 +58,7 @@
 </dl>
 </div>
 <p>
+    <a href="~/PedidosLanches/Create">Adicionar Lanche</a> |
     @Html.ActionLink("Edit", "Edit", new { id = Model.PedidoId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

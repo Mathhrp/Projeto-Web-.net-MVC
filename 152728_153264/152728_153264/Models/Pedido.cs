@@ -16,7 +16,8 @@ namespace _152728_153264.Models
         public string Nome { get; set; }
         [Required]
         [DataType("DateTime")]
-        public string Data { get; set; }
+        [System.Web.Mvc.HiddenInput(DisplayValue =false)]
+        public DataType Data { get; set; }
 
         [Required]
         public string Endereco { get; set; }

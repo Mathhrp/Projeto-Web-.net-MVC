@@ -19,7 +19,7 @@
             @Html.LabelFor(model => model.qtde, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.qtde, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.qtde, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.qtde, "", new { @class = "text-danger" , id ="qtde_pedido" })
             </div>
         </div>
 
@@ -38,6 +38,7 @@
                 @Html.ValidationMessageFor(model => model.LancheId, "", new { @class = "text-danger" })
             </div>
         </div>
+        <p id="qtde_de_lanches" hidden></p>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
