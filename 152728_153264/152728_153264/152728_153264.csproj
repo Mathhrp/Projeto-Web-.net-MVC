@@ -205,7 +205,7 @@
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\PedidosLanchesController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
-    <Compile Include="DbLanchonete.cs" />
+    <Compile Include="Db_Lanchonete.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,9 +221,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DbLanchonete.mdf" />
-    <Content Include="App_Data\DbLanchonete_log.ldf">
-      <DependentUpon>DbLanchonete.mdf</DependentUpon>
+    <Content Include="App_Data\Db_Lanchonete.mdf" />
+    <Content Include="App_Data\Db_Lanchonete_log.ldf">
+      <DependentUpon>Db_Lanchonete.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -299,16 +299,16 @@
     <Content Include="Views\LancheProdutos\Details.cshtml" />
     <Content Include="Views\LancheProdutos\Edit.cshtml" />
     <Content Include="Views\LancheProdutos\Index.cshtml" />
-    <Content Include="Views\Pedidos\Create.cshtml" />
-    <Content Include="Views\Pedidos\Delete.cshtml" />
-    <Content Include="Views\Pedidos\Details.cshtml" />
-    <Content Include="Views\Pedidos\Edit.cshtml" />
-    <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\PedidosLanches\Create.cshtml" />
     <Content Include="Views\PedidosLanches\Delete.cshtml" />
     <Content Include="Views\PedidosLanches\Details.cshtml" />
     <Content Include="Views\PedidosLanches\Edit.cshtml" />
     <Content Include="Views\PedidosLanches\Index.cshtml" />
+    <Content Include="Views\Pedidos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Delete.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\Pedidos\Edit.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
