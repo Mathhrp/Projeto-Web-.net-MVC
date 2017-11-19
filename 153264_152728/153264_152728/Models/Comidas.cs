@@ -15,5 +15,6 @@ namespace _153264_152728.Models
         public int IdComida { get; set; }
         public string Nome { get; set; }
         public double Preco { get; set; }
+
     }
 }

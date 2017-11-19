@@ -13,12 +13,12 @@ namespace _153264_152728.Controllers
 {
     public class ProdutosController : Controller
     {
-        private DbLanche db = new DbLanche();
+        private DbLanches3 db = new DbLanches3();
 
         // GET: Produtos
         public ActionResult Index()
         {
-            return View(db.Produtoes.ToList());
+            return View(db.Produtos.ToList());
         }
 
         // GET: Produtos/Details/5
@@ -28,12 +28,12 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtoes.Find(id);
-            if (produto == null)
+            Produtos produtos = db.Produtos.Find(id);
+            if (produtos == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(produtos);
         }
 
         // GET: Produtos/Create
@@ -47,16 +47,16 @@ namespace _153264_152728.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdProduto,Nome,Tipo,qtde")] Produto produto)
+        public ActionResult Create([Bind(Include = "IdProduto,Nome,Tipo,qtde")] Produtos produtos)
         {
             if (ModelState.IsValid)
             {
-                db.Produtoes.Add(produto);
+                db.Produtos.Add(produtos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(produto);
+            return View(produtos);
         }
 
         // GET: Produtos/Edit/5
@@ -66,12 +66,12 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtoes.Find(id);
-            if (produto == null)
+            Produtos produtos = db.Produtos.Find(id);
+            if (produtos == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(produtos);
         }
 
         // POST: Produtos/Edit/5
@@ -79,15 +79,15 @@ namespace _153264_152728.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdProduto,Nome,Tipo,qtde")] Produto produto)
+        public ActionResult Edit([Bind(Include = "IdProduto,Nome,Tipo,qtde")] Produtos produtos)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
+                db.Entry(produtos).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(produto);
+            return View(produtos);
         }
 
         // GET: Produtos/Delete/5
@@ -97,12 +97,12 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtoes.Find(id);
-            if (produto == null)
+            Produtos produtos = db.Produtos.Find(id);
+            if (produtos == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(produtos);
         }
 
         // POST: Produtos/Delete/5
@@ -110,8 +110,8 @@ namespace _153264_152728.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produtoes.Find(id);
-            db.Produtoes.Remove(produto);
+            Produtos produtos = db.Produtos.Find(id);
+            db.Produtos.Remove(produtos);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

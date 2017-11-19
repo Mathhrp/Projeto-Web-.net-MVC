@@ -14,6 +14,6 @@ namespace _153264_152728.Models
         public string Nome { get; set; }
         public string  Tipo { get; set; }
         public int qtde { get; set; }
-
+        public virtual ICollection<LanPro> LanPro { get; set; }
     }
 }

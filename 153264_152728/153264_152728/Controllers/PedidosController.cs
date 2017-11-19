@@ -13,7 +13,7 @@ namespace _153264_152728.Controllers
 {
     public class PedidosController : Controller
     {
-        private DbLanche db = new DbLanche();
+        private DbLanches3 db = new DbLanches3();
 
         // GET: Pedidos
         public ActionResult Index()

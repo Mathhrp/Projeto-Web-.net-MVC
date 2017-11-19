@@ -13,7 +13,7 @@ namespace _153264_152728.Controllers
 {
     public class ComidasController : Controller
     {
-        private DbLanche db = new DbLanche();
+        private DbLanches3 db = new DbLanches3();
 
         // GET: Comidas
         public ActionResult Index()
@@ -52,6 +52,7 @@ namespace _153264_152728.Controllers
             if (ModelState.IsValid)
             {
                 db.Comidas.Add(comidas);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
