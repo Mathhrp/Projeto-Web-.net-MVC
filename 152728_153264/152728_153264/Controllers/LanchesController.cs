@@ -27,8 +27,13 @@ namespace _152728_153264.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             }
             Lanche lanche = db.Lanches.Find(id);
+            lanche.LancheProduto = (from a in db.LancheProdutoes
+                                   where a.LancheId == id
+                                   select a).ToList();
+            var l = from a in db.LancheProdutoes where a.LancheId==(int)id select a;
             if (lanche == null)
             {
                 return HttpNotFound();
