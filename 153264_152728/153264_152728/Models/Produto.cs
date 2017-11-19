@@ -9,16 +9,10 @@ namespace _153264_152728.Models
 {
     public class Produto
     {
-        public Produto()
-        {
-            this.Lanches = new HashSet<Comidas>();
-        }
         [Key]
         public int IdProduto { get; set; }
         public string Nome { get; set; }
         public string  Tipo { get; set; }
-        public int qtde { get; set; }
 
-        public virtual ICollection<Comidas> Lanches { get; set; }
     }
 }

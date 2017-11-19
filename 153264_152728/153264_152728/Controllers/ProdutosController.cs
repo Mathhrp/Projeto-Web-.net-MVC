@@ -13,7 +13,7 @@ namespace _153264_152728.Controllers
 {
     public class ProdutosController : Controller
     {
-        private DbLanchonete db = new DbLanchonete();
+        private DbLanches db = new DbLanches();
 
         // GET: Produtos
         public ActionResult Index()

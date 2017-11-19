@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using _153264_152728;
 using _153264_152728.Models;
 
 namespace _153264_152728.Controllers
 {
     public class ComidasController : Controller
     {
-        private ProdutoLancheContext db = new ProdutoLancheContext();
+        private DbLanches db = new DbLanches();
 
         // GET: Comidas
         public ActionResult Index()
         {
-            return View(db.Lanches.ToList());
+            return View(db.Comidas.ToList());
         }
 
         // GET: Comidas/Details/5
@@ -27,7 +28,7 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comidas comidas = db.Lanches.Find(id);
+            Comidas comidas = db.Comidas.Find(id);
             if (comidas == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace _153264_152728.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Lanches.Add(comidas);
+                db.Comidas.Add(comidas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comidas comidas = db.Lanches.Find(id);
+            Comidas comidas = db.Comidas.Find(id);
             if (comidas == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comidas comidas = db.Lanches.Find(id);
+            Comidas comidas = db.Comidas.Find(id);
             if (comidas == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace _153264_152728.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comidas comidas = db.Lanches.Find(id);
-            db.Lanches.Remove(comidas);
+            Comidas comidas = db.Comidas.Find(id);
+            db.Comidas.Remove(comidas);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

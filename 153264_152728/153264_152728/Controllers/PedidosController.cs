@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using _153264_152728;
 using _153264_152728.Models;
 
 namespace _153264_152728.Controllers
 {
     public class PedidosController : Controller
     {
-        private LanchePedidoContext db = new LanchePedidoContext();
+        private DbLanches db = new DbLanches();
 
         // GET: Pedidos
         public ActionResult Index()
         {
-            return View(db.Pedidos.ToList());
+            return View(db.Pedidoes.ToList());
         }
 
         // GET: Pedidos/Details/5
@@ -27,7 +28,7 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pedido pedido = db.Pedidos.Find(id);
+            Pedido pedido = db.Pedidoes.Find(id);
             if (pedido == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace _153264_152728.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Pedidos.Add(pedido);
+                db.Pedidoes.Add(pedido);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pedido pedido = db.Pedidos.Find(id);
+            Pedido pedido = db.Pedidoes.Find(id);
             if (pedido == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace _153264_152728.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pedido pedido = db.Pedidos.Find(id);
+            Pedido pedido = db.Pedidoes.Find(id);
             if (pedido == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace _153264_152728.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Pedido pedido = db.Pedidos.Find(id);
-            db.Pedidos.Remove(pedido);
+            Pedido pedido = db.Pedidoes.Find(id);
+            db.Pedidoes.Remove(pedido);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

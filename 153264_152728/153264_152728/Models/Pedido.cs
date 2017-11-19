@@ -8,10 +8,7 @@ namespace _153264_152728.Models
 {
     public class Pedido
     {
-        public Pedido()
-        {
-            this.Lanches = new HashSet<Comidas>();
-        }
+ 
         [Key]
         public int IdPedido { get; set; }
         public string Nome { get; set; }
@@ -21,6 +18,6 @@ namespace _153264_152728.Models
         public string Endereco { get; set; }
 
 
-        public virtual ICollection<Comidas> Lanches {get;set;}
+        public List<Comidas> Lanches {get;set;}
     }
 }
