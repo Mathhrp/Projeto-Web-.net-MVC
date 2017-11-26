@@ -12,7 +12,7 @@ namespace _152728_153264.Models
         [Required]
         public string Nome { get; set; }
         [Required]
-        public float Preco { get; set; }
+        public double Preco { get; set; }
 
         public virtual ICollection<LancheProduto> LancheProduto { get; set; }
         public virtual ICollection<PedidoLanche> PedidoLanche { get; set; }

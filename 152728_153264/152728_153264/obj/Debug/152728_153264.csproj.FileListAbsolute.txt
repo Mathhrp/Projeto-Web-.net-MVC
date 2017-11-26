@@ -240,6 +240,5 @@ C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Ow
 C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\obj\Debug\152728_153264.csprojResolveAssemblyReference.cache
 C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\obj\Debug\152728_153264.dll
 C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\obj\Debug\152728_153264.pdb

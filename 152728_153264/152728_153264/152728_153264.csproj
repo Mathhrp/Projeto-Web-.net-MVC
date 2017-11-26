@@ -199,13 +199,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LancheProdutosController.cs" />
+    <Compile Include="Controllers\LanchesProdutosController.cs" />
     <Compile Include="Controllers\LanchesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\PedidosLanchesController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
-    <Compile Include="DbLanchonete.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,11 +218,12 @@
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="_DbLanchonete.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DbLanchonete.mdf" />
-    <Content Include="App_Data\DbLanchonete_log.ldf">
-      <DependentUpon>DbLanchonete.mdf</DependentUpon>
+    <Content Include="App_Data\_DbLanchonete.mdf" />
+    <Content Include="App_Data\_DbLanchonete_log.ldf">
+      <DependentUpon>_DbLanchonete.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -294,21 +294,21 @@
     <Content Include="Views\Lanches\Details.cshtml" />
     <Content Include="Views\Lanches\Edit.cshtml" />
     <Content Include="Views\Lanches\Index.cshtml" />
-    <Content Include="Views\LancheProdutos\Create.cshtml" />
-    <Content Include="Views\LancheProdutos\Delete.cshtml" />
-    <Content Include="Views\LancheProdutos\Details.cshtml" />
-    <Content Include="Views\LancheProdutos\Edit.cshtml" />
-    <Content Include="Views\LancheProdutos\Index.cshtml" />
-    <Content Include="Views\Pedidos\Create.cshtml" />
-    <Content Include="Views\Pedidos\Delete.cshtml" />
-    <Content Include="Views\Pedidos\Details.cshtml" />
-    <Content Include="Views\Pedidos\Edit.cshtml" />
-    <Content Include="Views\Pedidos\Index.cshtml" />
+    <Content Include="Views\LanchesProdutos\Create.cshtml" />
+    <Content Include="Views\LanchesProdutos\Delete.cshtml" />
+    <Content Include="Views\LanchesProdutos\Details.cshtml" />
+    <Content Include="Views\LanchesProdutos\Edit.cshtml" />
+    <Content Include="Views\LanchesProdutos\Index.cshtml" />
     <Content Include="Views\PedidosLanches\Create.cshtml" />
     <Content Include="Views\PedidosLanches\Delete.cshtml" />
     <Content Include="Views\PedidosLanches\Details.cshtml" />
     <Content Include="Views\PedidosLanches\Edit.cshtml" />
     <Content Include="Views\PedidosLanches\Index.cshtml" />
+    <Content Include="Views\Pedidos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Delete.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\Pedidos\Edit.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

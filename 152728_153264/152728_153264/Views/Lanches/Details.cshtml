@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes</h2>
 
 <div>
-    <h4>Lanche</h4>
+    <h4>Lanche(@Html.DisplayFor(model => model.Nome))</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -33,10 +33,11 @@
             {
 
                 <p>
-                    @produto.Produto.Nome  @produto.qtde
+                    <strong>Nome:</strong>@produto.Produto.Nome <br /> <strong>Quantidade:</strong>@produto.qtde<br />
                 </p>
 
-            }</dd>
+            }
+        </dd>
 
     </dl>
 </div>

@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Pedidos Lanches</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,9 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Pedido.Nome)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.qtde)
-        </th>
         <th></th>
     </tr>
 
@@ -30,9 +27,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Pedido.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.qtde)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PedidoLancheId }) |

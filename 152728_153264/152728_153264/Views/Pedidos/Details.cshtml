@@ -19,14 +19,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Data)
         </dt>
 
@@ -41,10 +33,32 @@
         <dd>
             @Html.DisplayFor(model => model.Endereco)
         </dd>
+        <dt>
+            Lanches:
+        </dt>
+        <dd>
+            @{double total = 0; }
+            @foreach (var lanche in Model.PedidoLanche)
+            {
 
+                <p>
+                    <strong>Nome:</strong>@lanche.Lanche.Nome<br /> <strong>Preço:</strong> @lanche.Lanche.Preco<br />
+                    @{ total += lanche.Lanche.Preco;
+                    }
+                </p>
+
+                        }
+        </dd>
+        <dt>
+            Total:
+        </dt>
+        <dd>
+            @total
+        </dd>
     </dl>
 </div>
 <p>
+    <a href="~/PedidosLanches/Create">Adicionar Lanche</a> |
     @Html.ActionLink("Edit", "Edit", new { id = Model.PedidoId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

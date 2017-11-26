@@ -13,7 +13,7 @@ namespace _152728_153264.Controllers
 {
     public class PedidosController : Controller
     {
-        private DbLanchonete db = new DbLanchonete();
+        private _DbLanchonete db = new _DbLanchonete();
 
         // GET: Pedidos
         public ActionResult Index()
@@ -29,6 +29,9 @@ namespace _152728_153264.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Pedido pedido = db.Pedidoes.Find(id);
+            pedido.PedidoLanche = (from a in db.PedidoLanches
+                                   where a.PedidoId == id
+                                   select a).ToList();
             if (pedido == null)
             {
                 return HttpNotFound();
@@ -47,7 +50,7 @@ namespace _152728_153264.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PedidoId,Nome,Total,Data,Endereco")] Pedido pedido)
+        public ActionResult Create([Bind(Include = "PedidoId,Nome,Data,Endereco")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +82,7 @@ namespace _152728_153264.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PedidoId,Nome,Total,Data,Endereco")] Pedido pedido)
+        public ActionResult Edit([Bind(Include = "PedidoId,Nome,Data,Endereco")] Pedido pedido)
         {
             if (ModelState.IsValid)
             {

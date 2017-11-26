@@ -13,7 +13,7 @@ namespace _152728_153264.Controllers
 {
     public class PedidosLanchesController : Controller
     {
-        private DbLanchonete db = new DbLanchonete();
+        private _DbLanchonete db = new _DbLanchonete();
 
         // GET: PedidosLanches
         public ActionResult Index()
@@ -50,7 +50,7 @@ namespace _152728_153264.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PedidoLancheId,qtde,PedidoId,LancheId")] PedidoLanche pedidoLanche)
+        public ActionResult Create([Bind(Include = "PedidoLancheId,PedidoId,LancheId")] PedidoLanche pedidoLanche)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace _152728_153264.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PedidoLancheId,qtde,PedidoId,LancheId")] PedidoLanche pedidoLanche)
+        public ActionResult Edit([Bind(Include = "PedidoLancheId,PedidoId,LancheId")] PedidoLanche pedidoLanche)
         {
             if (ModelState.IsValid)
             {
