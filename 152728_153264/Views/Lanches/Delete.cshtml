@@ -1,0 +1,40 @@
+﻿@model _152728_153264.Models.Lanche
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar Lanche</h2>
+
+<h3>VocÊ tem certeza que irá deletar esse lanche?</h3>
+<div>
+    <h4>Lanche</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar a lista de lanches", "Index")
+        </div>
+    }
+</div>

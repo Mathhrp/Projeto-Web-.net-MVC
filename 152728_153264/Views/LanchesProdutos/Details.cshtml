@@ -1,0 +1,42 @@
+﻿@model _152728_153264.Models.LancheProduto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Produto Lanche</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lanche.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lanche.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qtde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qtde)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LancheProdutoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
