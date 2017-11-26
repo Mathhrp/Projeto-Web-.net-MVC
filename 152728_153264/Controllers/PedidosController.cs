@@ -32,6 +32,8 @@ namespace _152728_153264.Controllers
             pedido.PedidoLanche = (from a in db.PedidoLanches
                                    where a.PedidoId == id
                                    select a).ToList();
+
+            ViewBag.Lanches = db.Lanches.ToList();
             if (pedido == null)
             {
                 return HttpNotFound();
@@ -119,6 +121,60 @@ namespace _152728_153264.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult AdicionaLanche(int Id, int LancheId)
+        {
+            Pedido pedido = db.Pedidoes.Find(Id);
+
+            PedidoLanche a = pedido.PedidoLanche.ToList().Find(x => x.LancheId == LancheId && x.PedidoId == Id);
+            if (a == null)
+            {
+                Lanche team = db.Lanches.Find(LancheId);
+                PedidoLanche x = new PedidoLanche();
+                x.Lanche = team;
+                x.LancheId = LancheId;
+                x.PedidoId = Id;
+                x.Pedido = pedido;
+                pedido.PedidoLanche.Add(x);
+                team.PedidoLanche.Add(x);
+                db.PedidoLanches.Add(x);
+                db.Entry(pedido).State = EntityState.Modified;
+                db.Entry(team).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return Json(new Lanche(), JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult DeletaLanche(int Id, int LancheId)
+        {
+            Pedido pedido = db.Pedidoes.Find(Id);
+            Lanche lanche = db.Lanches.Find(LancheId);
+            PedidoLanche pedidolanche = db.PedidoLanches.Find(Id, LancheId);
+            pedido.PedidoLanche.Remove(pedidolanche);
+            lanche.PedidoLanche.Remove(pedidolanche);
+            db.PedidoLanches.Remove(pedidolanche);
+            db.Entry(pedido).State = EntityState.Modified;
+            db.Entry(lanche).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json(new Lanche(), JsonRequestBehavior.AllowGet);
+
+        }
+        public ActionResult getLanches(int Id)
+        {
+            var lista = db.Pedidoes.Find(Id).PedidoLanche.ToList();
+
+            List<Lanche> listaT = new List<Lanche>();
+            foreach (var item in lista)
+            {
+                Lanche a = new Lanche();
+                a.LancheID = item.LancheId;
+                a.Nome = item.Lanche.Nome;
+                a.Preco = item.Lanche.Preco;
+                listaT.Add(a);
+            }
+
+            return Json(listaT, JsonRequestBehavior.AllowGet);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -127,5 +183,7 @@ namespace _152728_153264.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }
