@@ -148,7 +148,8 @@ namespace _152728_153264.Controllers
         {
             Pedido pedido = db.Pedidoes.Find(Id);
             Lanche lanche = db.Lanches.Find(LancheId);
-            PedidoLanche pedidolanche = db.PedidoLanches.Find(Id, LancheId);
+            var pedidolanchel = db.PedidoLanches.Where(x => x.LancheId == LancheId && x.PedidoId == Id).ToList();
+            PedidoLanche pedidolanche = pedidolanchel.Find(x => x.LancheId == LancheId && x.PedidoId == Id);
             pedido.PedidoLanche.Remove(pedidolanche);
             lanche.PedidoLanche.Remove(pedidolanche);
             db.PedidoLanches.Remove(pedidolanche);
