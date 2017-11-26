@@ -13,7 +13,11 @@ namespace _152728_153264.Controllers
 {
     public class PedidosLanchesController : Controller
     {
+<<<<<<< HEAD
         private _DbLanchonete db = new _DbLanchonete();
+=======
+        private DbLanchonete_ db = new DbLanchonete_();
+>>>>>>> e176fdd3a9ca0d54986575dc07965d2da4d198ea
 
         // GET: PedidosLanches
         public ActionResult Index()
@@ -40,8 +44,14 @@ namespace _152728_153264.Controllers
         // GET: PedidosLanches/Create
         public ActionResult Create()
         {
-            ViewBag.LancheId = new SelectList(db.Lanches, "LancheID", "Nome");
+            ViewBag.LancheId = new SelectList((from a in db.Lanches
+                                               join
+                          b in db.LancheProdutoes on a.LancheID equals b.LancheId
+                                               join c in db.Produtoes on b.ProdutoId equals c.ProdutoID
+                                               where c.qtde - b.qtde > 0
+                                               select a).ToList(), "LancheID", "Nome");
             ViewBag.PedidoId = new SelectList(db.Pedidoes, "PedidoId", "Nome");
+
             return View();
         }
 

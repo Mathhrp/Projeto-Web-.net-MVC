@@ -13,7 +13,11 @@ namespace _152728_153264.Controllers
 {
     public class LanchesController : Controller
     {
+<<<<<<< HEAD
         private _DbLanchonete db = new _DbLanchonete();
+=======
+        private DbLanchonete_ db = new DbLanchonete_();
+>>>>>>> e176fdd3a9ca0d54986575dc07965d2da4d198ea
 
         // GET: Lanches
         public ActionResult Index()

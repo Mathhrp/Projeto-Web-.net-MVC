@@ -199,12 +199,20 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\LanchesProdutosController.cs" />
+=======
+>>>>>>> e176fdd3a9ca0d54986575dc07965d2da4d198ea
     <Compile Include="Controllers\LanchesController.cs" />
+    <Compile Include="Controllers\LanchesProdutosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\PedidosLanchesController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="DbLanchonete_.cs" />
+>>>>>>> e176fdd3a9ca0d54986575dc07965d2da4d198ea
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,9 +229,15 @@
     <Compile Include="_DbLanchonete.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="App_Data\_DbLanchonete.mdf" />
     <Content Include="App_Data\_DbLanchonete_log.ldf">
       <DependentUpon>_DbLanchonete.mdf</DependentUpon>
+=======
+    <Content Include="App_Data\DbLanchonete_.mdf" />
+    <Content Include="App_Data\DbLanchonete__log.ldf">
+      <DependentUpon>DbLanchonete_.mdf</DependentUpon>
+>>>>>>> e176fdd3a9ca0d54986575dc07965d2da4d198ea
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -284,6 +298,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Pedidos\Create.cshtml" />
+    <Content Include="Views\Pedidos\Delete.cshtml" />
+    <Content Include="Views\Pedidos\Details.cshtml" />
+    <Content Include="Views\Pedidos\Edit.cshtml" />
+    <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Produtos\Create.cshtml" />
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\Details.cshtml" />

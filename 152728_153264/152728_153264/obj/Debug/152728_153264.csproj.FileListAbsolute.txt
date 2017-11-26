@@ -158,7 +158,6 @@ C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Micr
 C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\obj\Debug\152728_153264.csprojResolveAssemblyReference.cache
 C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\obj\Debug\152728_153264.dll
 C:\Users\LUCAS\Desktop\Projeto-Web-.net-MVC\152728_153264\152728_153264\obj\Debug\152728_153264.pdb
 C:\Users\mathe\Projeto-Web-.net-MVC\152728_153264\152728_153264\bin\ApplicationInsights.config
