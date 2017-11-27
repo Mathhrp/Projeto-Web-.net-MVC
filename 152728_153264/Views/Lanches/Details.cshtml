@@ -41,7 +41,114 @@
 
     </dl>
 </div>
+<h3>Lanches</h3>
+<div class="form-group">
+    <label class="control-label">Lanche</label>
+
+    <select id="teamIdAdd" class="form-control">
+        @foreach (var item in ViewBag.Produtos)
+        {
+            <option value="@item.ProdutoID">@item.Nome</option>
+        }
+    </select>
+
+    <button class="btn btn-success" id="btnAdd">Adicionar</button>
+</div>
+
+<table id="PedidosbyLanches">
+    <thead>
+        <tr>
+            <th>ID Produto</th>
+            <th>Nome</th>
+            <th>Deletar</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.LancheID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+
+@section scripts {
+    <script>
+    $(document).ready(function () {
+        getProdutos();
+
+    });
+    function getProdutos() {
+        var data = { Id:@Model.LancheID};
+
+        $.ajax({
+            url: '/Lanches/getProdutos/',
+            type: 'GET',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+            var rows = '';
+                $.each(data, function (i, item) {
+                    rows += "<tr>"
+                        rows += "<td>" + item.ProdutoID + "</td>"
+                        rows += "<td>" + item.Nome + "</td>"
+                        rows += "<td><button type='button' id='btnDelete' class='btn btn-danger' onclick='return deleteTeamById(" + item.ProdutoID + ")'>Delete</button></td>"
+                        rows += "</tr>";
+                    });
+                $("#PedidosbyLanches > tbody").html(rows);
+            },
+            error: function (err) {
+                alert("Error: " + err.responseText);
+            }
+     });
+    }
+        // Insert/ Update a product
+        $("#btnAdd").click(function (e) {
+        var data = {
+        Id: @Model.LancheID,
+        ProdutoID: $('#teamIdAdd').val()
+        }
+        $.ajax({
+        url: '/Lanches/AdicionaProduto/',
+        type: 'POST',
+        dataType: 'json',
+        data: data,
+        success: function () {
+            getProdutos();
+        },
+        error: function (err) {
+            alert("Error: " + err.responseText);
+        }
+        });
+        });
+
+
+        function deleteTeamById(id) {
+            var data = {
+                Id: @Model.LancheID,
+                ProdutoId: id
+            }
+            $.ajax({
+                url: '/Lanches/DeletaProduto/',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                success: function (data) {
+                    getProdutos();
+                },
+                error: function (err) {
+                    alert("Error: " + err.responseText);
+                }
+            });
+
+        }
+
+
+
+
+
+
+
+    </script>
+}
