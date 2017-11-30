@@ -33,6 +33,9 @@ namespace _152728_153264.Controllers
             lanche.LancheProduto = (from a in db.LancheProdutoes
                                     where a.LancheId == id
                                     select a).ToList();
+
+            ViewBag.Produtos = db.Produtoes.ToList();
+
             if (lanche == null)
             {
                 return HttpNotFound();
@@ -128,5 +131,63 @@ namespace _152728_153264.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        public ActionResult getProdutos(int Id)
+        {
+            var lista = db.Lanches.Find(Id).LancheProduto.ToList();
+
+            List<Produto> listaT = new List<Produto>();
+            foreach (var item in lista)
+            {
+                Produto a = new Produto();
+                a.ProdutoID = item.ProdutoId;
+                a.Nome = item.Produto.Nome;
+                listaT.Add(a);
+            }
+
+            return Json(listaT, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DeletaProduto(int Id, int ProdutoId)
+        {
+            Produto produto = db.Produtoes.Find(ProdutoId);
+            Lanche lanche = db.Lanches.Find(Id);
+            var produtolanchel = db.LancheProdutoes.Where(x => x.LancheId == Id && x.ProdutoId == ProdutoId).ToList();
+            LancheProduto produtolanche = produtolanchel.Find(x => x.LancheId == Id && x.ProdutoId == ProdutoId);
+            produto.LancheProduto.Remove(produtolanche);
+            lanche.LancheProduto.Remove(produtolanche);
+            db.LancheProdutoes.Remove(produtolanche);
+            db.Entry(produto).State = EntityState.Modified;
+            db.Entry(lanche).State = EntityState.Modified;
+            db.SaveChanges();
+            return Json(new Lanche(), JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult AdicionaProduto(int Id, int ProdutoId)
+        {
+            Lanche lanche = db.Lanches.Find(Id);
+
+            LancheProduto a = lanche.LancheProduto.ToList().Find(x => x.LancheId == Id && x.ProdutoId == ProdutoId);
+            if (a == null)
+            {
+                Produto produto = db.Produtoes.Find(ProdutoId);
+                LancheProduto x = new LancheProduto();
+                x.Produto = produto;
+                x.ProdutoId = ProdutoId;
+                x.LancheId = Id;
+                x.Lanche = lanche;
+                lanche.LancheProduto.Add(x);
+                produto.LancheProduto.Add(x);
+                db.LancheProdutoes.Add(x);
+                db.Entry(lanche).State = EntityState.Modified;
+                db.Entry(produto).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return Json(new Lanche(), JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

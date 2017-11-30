@@ -63,7 +63,7 @@
 <div class="form-group">
     <label class="control-label">Lanche</label>
 
-    <select id="teamIdAdd" class="form-control">
+    <select id="lancheIdAdd" class="form-control">
         @foreach (var item in ViewBag.Lanches)
         {
             <option value="@item.LancheID">@item.Nome</option>
@@ -110,7 +110,7 @@
                         rows += "<td>" + item.LancheID + "</td>"
                         rows += "<td>" + item.Nome + "</td>"
                         rows += "<td>" + item.Preco + "</td>"
-                        rows += "<td><button type='button' id='btnDelete' class='btn btn-danger' onclick='return deleteTeamById(" + item.LancheID + ")'>Delete</button></td>"
+                        rows += "<td><button type='button' id='btnDelete' class='btn btn-danger' onclick='return deleteLancheById(" + item.LancheID + ")'>Delete</button></td>"
                         rows += "</tr>";
                     });
                 $("#PedidosbyLanches > tbody").html(rows);
@@ -123,8 +123,8 @@
         // Insert/ Update a product
         $("#btnAdd").click(function (e) {
         var data = {
-        Id: @Model.PedidoId,
-        LancheId: $('#teamIdAdd').val()
+            Id: @Model.PedidoId,
+            LancheId : $('#lancheIdAdd').val()
         }
         $.ajax({
         url: '/Pedidos/AdicionaLanche/',
@@ -140,7 +140,7 @@
         });
         });
 
-        function deleteTeamById(id) {
+        function deleteLancheById(id) {
             var data = {
                 Id: @Model.PedidoId,
                 LancheId: id

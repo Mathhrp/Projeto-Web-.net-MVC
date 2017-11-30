@@ -125,20 +125,22 @@ namespace _152728_153264.Controllers
         {
             Pedido pedido = db.Pedidoes.Find(Id);
 
-            PedidoLanche a = pedido.PedidoLanche.ToList().Find(x => x.LancheId == LancheId && x.PedidoId == Id);
+            //PedidoLanche a = pedido.PedidoLanche.ToList().Find(x => x.LancheId == LancheId && x.PedidoId == Id);
+
+            PedidoLanche a = null;
             if (a == null)
             {
-                Lanche team = db.Lanches.Find(LancheId);
+                Lanche lanche = db.Lanches.Find(LancheId);
                 PedidoLanche x = new PedidoLanche();
-                x.Lanche = team;
+                x.Lanche = lanche;
                 x.LancheId = LancheId;
                 x.PedidoId = Id;
                 x.Pedido = pedido;
                 pedido.PedidoLanche.Add(x);
-                team.PedidoLanche.Add(x);
+                lanche.PedidoLanche.Add(x);
                 db.PedidoLanches.Add(x);
                 db.Entry(pedido).State = EntityState.Modified;
-                db.Entry(team).State = EntityState.Modified;
+                db.Entry(lanche).State = EntityState.Modified;
                 db.SaveChanges();
             }
             return Json(new Lanche(), JsonRequestBehavior.AllowGet);
